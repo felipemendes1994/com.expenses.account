@@ -8,11 +8,14 @@ Funcionalidade: Fluxo de consulta de conta bancaria
 	
 	Cenario: Consulta de conta bancaria existente
 		Dado que o seguinte registro de conta bancaria exista
-		| agency | account  |
-		| 0001-9 | 19977530 |
+		| agencyNumber | accountNumber  |
+		| 0001-9 			 | 19977530 			|
 		Quando a API de GET "/accounts/19977530/agencies/0001-9" for chamada
 		Entao a API retornara o status 200
 		E o payload
 		"""
-		
+			{
+				"agencyNumber":"0001-9",
+				"accountNumber":"19977530"
+			}
 		"""
