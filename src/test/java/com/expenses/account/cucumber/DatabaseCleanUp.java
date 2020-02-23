@@ -3,7 +3,6 @@ package com.expenses.account.cucumber;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale.Category;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Table;
@@ -12,10 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootContextLoader;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 
+import com.expenses.account.TestConfiguration;
 import com.expenses.account.entity.Account;
 
 import cucumber.api.java.Before;
@@ -24,8 +23,8 @@ import cucumber.api.java.Before;
 public class DatabaseCleanUp {
     private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseCleanUp.class);
 
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
 	private EntityManager em;

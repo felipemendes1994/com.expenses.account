@@ -18,7 +18,7 @@ import org.springframework.web.util.DefaultUriBuilderFactory;
 import com.expenses.account.utility.HttpCommonResponse;
 
 @Configuration
-@ComponentScan(basePackages = {"com.expenses"})
+@ComponentScan(basePackages = {"com.expenses.account"})
 public class TestConfiguration {
 	
 	@Value("${application.uri}")
