@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.expenses.account.entity.Account;
-import com.expenses.account.rest.request.AccountRequest;
+import com.expenses.account.exception.ConflictException;
+import com.expenses.account.rest.dao.AccountRequest;
+import com.expenses.account.rest.dao.AccountResponse;
 import com.expenses.account.service.AccountService;
 
 @RestController
@@ -19,15 +20,15 @@ public class AccountRest {
 	@Autowired
 	private AccountService service;
 	
-	@PostMapping("/account")
+	@PostMapping("/accounts")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void createAccount(@RequestBody AccountRequest request) {
+	public void createAccount(@RequestBody AccountRequest request) throws ConflictException {
 		service.createAccount(request.toAccount());
 	}
 	
 	@GetMapping("/accounts/{account}/agencies/{agency}")
 	@ResponseStatus(code = HttpStatus.OK)
-	public Account getAccount(@PathVariable String account, @PathVariable String agency) throws Exception {
+	public AccountResponse getAccount(@PathVariable String account, @PathVariable String agency) throws Exception {
 		return service.findAccount(account, agency);
 	}
 }

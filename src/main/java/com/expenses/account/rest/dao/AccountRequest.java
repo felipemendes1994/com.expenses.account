@@ -1,14 +1,17 @@
-package com.expenses.account.rest.request;
+package com.expenses.account.rest.dao;
 
 import com.expenses.account.entity.Account;
-import com.expenses.account.entity.AccountType;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountRequest {
-
 	private String accountType;
 	private String agencyNumber;
 	private String accountNumber;
 	private String bankNumber;
+	private String bankName;
 	
 	public String getAccountType() {
 		return accountType;
@@ -41,13 +44,21 @@ public class AccountRequest {
 	public void setBankNumber(String bankNumber) {
 		this.bankNumber = bankNumber;
 	}
+
+	public String getBankName() {
+		return bankName;
+	}
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
 	
 	public Account toAccount(){
 		Account account = new Account();
-		account.setAccountType(AccountType.valueOf(this.accountType));
 		account.setAccountNumber(this.accountNumber);
-		account.setBanckNumber(this.bankNumber);
+		account.setBankNumber(this.bankNumber);
 		account.setAgencyNumber(this.agencyNumber);
+		account.setBankName(this.bankName);
 		return account;
 	}
 }

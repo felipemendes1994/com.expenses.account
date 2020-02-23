@@ -22,6 +22,7 @@ public class Account implements Serializable{
 	private String accountNick;
 	private AccountType accountType;
 	private String bankNumber;
+	private String bankName;
 	
 	private BigDecimal initialBalance;
 	private BigDecimal balance;
@@ -77,11 +78,17 @@ public class Account implements Serializable{
 	public void setAccountNick(String accountNick) {
 		this.accountNick = accountNick;
 	}
-	public String getBanckNumber() {
+	public String getBankNumber() {
 		return bankNumber;
 	}
-	public void setBanckNumber(String bankNumber) {
+	public void setBankNumber(String bankNumber) {
 		this.bankNumber = bankNumber;
+	}
+	public String getBankName() {
+		return bankName;
+	}
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
 	}
 	
 	@Override
