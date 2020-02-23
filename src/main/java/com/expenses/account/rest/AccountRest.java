@@ -31,4 +31,8 @@ public class AccountRest {
 	public AccountResponse getAccount(@PathVariable String account, @PathVariable String agency) throws Exception {
 		return service.findAccount(account, agency);
 	}
+	
+	@GetMapping("/health")
+	@ResponseStatus(code = HttpStatus.OK)
+	public void health() {}
 }
