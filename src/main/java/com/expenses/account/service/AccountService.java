@@ -38,4 +38,11 @@ public class AccountService {
 		
 		return new AccountResponse(account);
 	}
+
+	public void deleteAccount(String accountNumber, String agencyNumber) throws NotFoundException {
+		Account account = accountRepository.findByAccountNumberAndAgencyNumber(accountNumber, agencyNumber)
+				.orElseThrow(() -> new NotFoundException(String.format("Agency %s, Account %s not found", agencyNumber, accountNumber)));
+		
+		accountRepository.delete(account);
+	}
 }
