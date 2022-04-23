@@ -9,8 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "account")
+@Data
 public class Account implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -29,67 +32,6 @@ public class Account implements Serializable{
 	
 	private String agencyNumber;
 	private String accountNumber;
-	
-	public String getAccountName() {
-		return accountName;
-	}
-	public void setAccountName(String accountName) {
-		this.accountName = accountName;
-	}
-	public BigDecimal getInitialBalance() {
-		return initialBalance;
-	}
-	public void setInitialBalance(BigDecimal initialBalance) {
-		this.initialBalance = initialBalance;
-	}
-	public AccountType getAccountType() {
-		return accountType;
-	}
-	public void setAccountType(AccountType accountType) {
-		this.accountType = accountType;
-	}
-	public String getAgencyNumber() {
-		return agencyNumber;
-	}
-	public void setAgencyNumber(String agencyNumber) {
-		this.agencyNumber = agencyNumber;
-	}
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-	public Long getIdtAccount() {
-		return idtAccount;
-	}
-	public void setIdtAccount(Long idtAccount) {
-		this.idtAccount = idtAccount;
-	}
-	public BigDecimal getBalance() {
-		return balance;
-	}
-	public void setBalance(BigDecimal balance) {
-		this.balance = balance;
-	}
-	public String getAccountNick() {
-		return accountNick;
-	}
-	public void setAccountNick(String accountNick) {
-		this.accountNick = accountNick;
-	}
-	public String getBankNumber() {
-		return bankNumber;
-	}
-	public void setBankNumber(String bankNumber) {
-		this.bankNumber = bankNumber;
-	}
-	public String getBankName() {
-		return bankName;
-	}
-	public void setBankName(String bankName) {
-		this.bankName = bankName;
-	}
 	
 	@Override
 	public int hashCode() {
