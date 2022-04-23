@@ -4,22 +4,23 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.expenses.account.controller.dto.AccountResponse;
 import com.expenses.account.entity.Account;
 import com.expenses.account.entity.AccountRepository;
 import com.expenses.account.exception.ConflictException;
 import com.expenses.account.exception.NotFoundException;
-import com.expenses.account.rest.dao.AccountResponse;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class AccountService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(AccountService.class);
 	
-	@Autowired
-	AccountRepository accountRepository;
+	private final AccountRepository accountRepository;
 	
 	public void createAccount(Account account) throws ConflictException {
 		Optional<Account> old = accountRepository.findByAccountNumberAndAgencyNumber(account.getAccountNumber(), account.getAgencyNumber());
